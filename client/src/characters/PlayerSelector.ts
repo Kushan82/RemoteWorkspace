@@ -17,12 +17,10 @@ export default class PlayerSelector extends Phaser.GameObjects.Zone {
       return
     }
 
-    // no need to update player selection while sitting
     if (player.playerBehavior === PlayerBehavior.SITTING) {
       return
     }
 
-    // update player selection box position so that it's always in front of the player
     const { x, y } = player
     let joystickLeft = false
     let joystickRight = false
@@ -44,8 +42,7 @@ export default class PlayerSelector extends Phaser.GameObjects.Zone {
       this.setPosition(x, y + 32)
     }
 
-    // while currently selecting an item,
-    // if the selector and selection item stop overlapping, clear the dialog box and selected item
+   
     if (this.selectedItem) {
       if (!this.scene.physics.overlap(this, this.selectedItem)) {
         this.selectedItem.clearDialogBox()

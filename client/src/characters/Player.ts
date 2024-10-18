@@ -1,9 +1,6 @@
 import Phaser from 'phaser'
 import { PlayerBehavior } from '../../../types/PlayerBehavior'
-/**
- * shifting distance for sitting animation
- * format: direction: [xShift, yShift, depthShift]
- */
+
 export const sittingShiftData = {
   up: [0, 3, -10],
   down: [0, 3, 1],

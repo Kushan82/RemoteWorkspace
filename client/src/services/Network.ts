@@ -45,10 +45,6 @@ export default class Network {
     phaserEvents.on(Event.PLAYER_DISCONNECTED, this.playerStreamDisconnect, this)
   }
 
-  /**
-   * method to join Colyseus' built-in LobbyRoom, which automatically notifies
-   * connected clients whenever rooms with "realtime listing" have updates
-   */
   async joinLobbyRoom() {
     this.lobby = await this.client.joinOrCreate(RoomType.LOBBY)
 

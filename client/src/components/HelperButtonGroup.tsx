@@ -143,7 +143,7 @@ export default function HelperButtonGroup() {
             </RoomDescription>
             <p className="tip">
               <LightbulbIcon />
-              Shareable link coming up 😄
+              ---
             </p>
           </Wrapper>
         )}

@@ -138,15 +138,14 @@ export class RemoteWorkspace extends Room<OfficeState> {
       })
     })
 
-    // when a player send a chat message, update the message array and broadcast to all connected clients except the sender
+    // when a player send a chat msg, update the msg array and show to all connected  except the sender
     this.onMessage(Message.ADD_CHAT_MESSAGE, (client, message: { content: string }) => {
-      // update the message array (so that players join later can also see the message)
+      // update msg so that players join later can also see the msg
       this.dispatcher.dispatch(new ChatMessageUpdateCommand(), {
         client,
         content: message.content,
       })
 
-      // broadcast to all currently connected clients except the sender (to render in-game dialog on top of the character)
       this.broadcast(
         Message.ADD_CHAT_MESSAGE,
         { clientId: client.sessionId, content: message.content },
